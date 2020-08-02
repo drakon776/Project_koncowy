@@ -1,7 +1,3 @@
-repo na githubie
-
-Django/Flask
-
 Klient:
 Panel Klienta:
     --Imie
@@ -19,6 +15,23 @@ Panel Klienta:
     --SMS
     --Rozmowa Telefoniczna
 
+wyglad strony zglaszania usterek:
+-formularz:
+    --typ zglaszanej usteki: (MODEL W BD) do wyboru przez klienta
+        -Domofon
+        -Telewizja
+        -CCTV
+        -Alarm
+        -C.O.
+        -C.W.
+        -Prace ślusarskie
+        -Prace Hydrauliczne
+    --adres usterki
+    --opis usterki
+
+
+
+
 Serwis:
 Panel Serwisu:
     --Imie
@@ -26,7 +39,7 @@ Panel Serwisu:
     --Specjalizacja
     --Historia wykonanych Napraw
 - oznacza odebrane zlecenia
-    --wysyla maila lub SMS do klienta ze zlecenie zosało odebrane
+    --wysyla maila lub SMS do klienta ze zlecenie zostało odebrane
 - Informuje klienta (SMS/Email/Rozmowa Telefoniczna) o dacie pojawienia sie serwisanta
     --data
     --godzina
@@ -36,4 +49,3 @@ Panel Serwisu:
     --wypisuje użyty materiał
     --dopisuje wykonany adres do montera
     --wysyla SMS/Email o wykonanej usterce do klienta(szablon)
-
