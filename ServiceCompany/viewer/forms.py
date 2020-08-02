@@ -1,12 +1,10 @@
-from django.forms import Form, ModelForm, CharField
+from django.contrib.auth.forms import AuthenticationForm
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit
 
 
-from viewer.models import Client
-
-class UserForm(ModelForm):
-    class Meta:
-        model = Client
-        fields = '__all__'
-    name = CharField()
-
-
+class SubmittableAuthenticationForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(*self.fields, Submit('submit', 'Submit'))
