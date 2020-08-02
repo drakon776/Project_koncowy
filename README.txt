@@ -5,6 +5,8 @@ Panel Klienta:
     --Telefon
     --Adres [ul./os.] [nr. bloku/domu] [nr.mieszkania]
     --email (Opcjonalnie)
+-ma dostep do stworzenia Usterki
+-ma dostep do edytowania Usterki
 - Klient wybiera co chce zareklamowac
 - Klient wybiera jak objawia sie usterka
     --kilka opcji do wybrania
@@ -14,22 +16,13 @@ Panel Klienta:
     --email
     --SMS
     --Rozmowa Telefoniczna
-
-wyglad strony zglaszania usterek:
--formularz:
-    --typ zglaszanej usteki: (MODEL W BD) do wyboru przez klienta
-        -Domofon
-        -Telewizja
-        -CCTV
-        -Alarm
-        -C.O.
-        -C.W.
-        -Prace ślusarskie
-        -Prace Hydrauliczne
+-formularz tworzenia(zglaszania))usterki:
+TYPUSTERKI = Domofon,Telewizja,CCTV,Alarm,C.O.,C.W.,Prace ślusarskie,Prace Hydrauliczne !!BD!!
+    --typ zglaszanej usterki(TYPUSTERKI)
     --adres usterki
     --opis usterki
 
-
+autentykacja urzytkownikow
 
 
 Serwis:

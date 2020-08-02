@@ -1,4 +1,6 @@
-from django.db.models import Model, CharField, TextField
+from django.db.models import Model, CharField, TextField, CASCADE, OneToOneField
+from django.contrib.auth.models import User
+
 
 
 class Client(Model):
@@ -26,3 +28,7 @@ class FaultType(Model):
 
     def __str__(self):
         return self.address
+
+class Profile(Model):
+    user =OneToOneField(User,on_delete=CASCADE)
+    telephone = TextField()

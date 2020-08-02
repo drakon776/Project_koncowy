@@ -4,13 +4,16 @@ from crispy_forms.layout import Layout, Submit
 
 from django.contrib.auth.forms import UserCreationForm
 
-from viewer.models import Client
+from viewer.models import Client, Profile
+from django.db.transaction import atomic
+
 
 class UserForm(ModelForm):
     class Meta:
         model = Client
         fields = '__all__'
         name = CharField()
+
 
 class FaultForm(Form):
     fault_types = (
@@ -23,8 +26,8 @@ class FaultForm(Form):
         ("7", "Prace ślusarskie"),
         ("8", "Prace Hydrauliczne"),
     )
-    name =ChoiceField(choices=fault_types)
-    address = ChoiceField(choices=(('1','Os.'),('2','Ul.')))
+    name = ChoiceField(choices=fault_types)
+    address = ChoiceField(choices=(('1', 'Os.'), ('2', 'Ul.')))
     desc = CharField(widget=Textarea, required=False)
 
 
@@ -36,10 +39,17 @@ class SubmittableForm(Form):
 
 
 class SignUpForm(SubmittableForm, UserCreationForm):
-
     class Meta(UserCreationForm.Meta):
         fields = ['username', 'first_name']
 
-        def save(self, commit=True):
-            self.instance.is_active = False
-            return super().save(commit)
+    telephone = CharField(widget=Textarea)
+
+    @atomic
+    def save(self, commit=True):
+        self.instance.is_active = False
+        result = super().save(commit)
+        telephone = self.cleaned_data['telephone']
+        profile = Profile(telephone=telephone, user=result)
+        if commit:
+            profile.save()
+        return result

@@ -13,5 +13,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', user, name="index"),
     path('fault/', ViewFault.as_view(), name='faulttype'),
-    path('sign-up/',SignUpView.as_view(), name='sign-up')
+    path('sign-up/', SignUpView.as_view(), name='sign-up')
 ]
