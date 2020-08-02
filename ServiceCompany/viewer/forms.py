@@ -25,23 +25,21 @@ class FaultForm(Form):
     )
     name =ChoiceField(choices=fault_types)
     address = ChoiceField(choices=(('1','Os.'),('2','Ul.')))
-
-
     desc = CharField(widget=Textarea, required=False)
 
-#
-# class SubmittableForm(Form):
-#     def __init__(self, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         self.helper = FormHelper()
-#         self.helper.layout = Layout(*self.fields, Submit('submit', 'Submit'))
-#
-#
-# class SignUpForm(SubmittableForm, UserCreationForm):
-#
-#     class Meta(UserCreationForm.Meta):
-#         fields = ['username', 'first_name']
-#
-#         def save(self, commit=True):
-#             self.instance.is_active = False
-#             return super().save(commit)
+
+class SubmittableForm(Form):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(*self.fields, Submit('submit', 'Submit'))
+
+
+class SignUpForm(SubmittableForm, UserCreationForm):
+
+    class Meta(UserCreationForm.Meta):
+        fields = ['username', 'first_name']
+
+        def save(self, commit=True):
+            self.instance.is_active = False
+            return super().save(commit)
