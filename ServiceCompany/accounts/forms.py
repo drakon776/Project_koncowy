@@ -1,7 +1,7 @@
 from django.forms import Form, CharField, Textarea
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from django.db.transaction import atomic
 from viewer.models import Profile
 
@@ -31,4 +31,7 @@ class SignUpForm(SubmittableForm, UserCreationForm):
 
 
 class SubmittableAuthenticationForm(SubmittableForm, AuthenticationForm):
+    pass
+
+class SubmittablePasswordChangeForm(SubmittableForm, PasswordChangeForm):
     pass
