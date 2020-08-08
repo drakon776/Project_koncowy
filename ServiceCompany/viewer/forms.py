@@ -2,9 +2,6 @@ from django.forms import Form, ModelForm, CharField, Textarea, ChoiceField, Fiel
 from viewer.models import Client, FaultType
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
-from phonenumber_field.formfields import PhoneNumberField
-
-
 
 
 class SubmittableForm(Form):
@@ -25,6 +22,7 @@ class FaultFormModel(ModelForm):
     class Meta:
         model = FaultType
         fields = ('name', 'address', 'phone', 'desc')
+
 
     helper = FormHelper()
     helper.add_input(Submit('submit', 'Submit', css_class='btn-primary'))

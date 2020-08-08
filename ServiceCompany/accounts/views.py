@@ -11,7 +11,7 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('index')
 
 
-class UserLoginView(LoginView,TitleMixin, SuccessMessagedFormMixin,):
+class UserLoginView(LoginView, TitleMixin, SuccessMessagedFormMixin,):
     title = 'Login'
     success_message = 'Successfully logged in!'
     template_name = 'form.html'

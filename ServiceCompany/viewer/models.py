@@ -2,6 +2,10 @@ from django.db.models import Model, CharField,IntegerField, TextField, CASCADE, 
 from django.contrib.auth.models import User
 from django.forms import ChoiceField
 from phonenumber_field.modelfields import PhoneNumberField
+
+from django.contrib.auth.models import User
+
+
 class Client(Model):
     name = CharField(max_length=128)
     surname = CharField(max_length=128)
@@ -38,7 +42,7 @@ class FaultType(Model):
     address = CharField(max_length=128)
     desc = TextField(null=True, blank=True)
     phone = IntegerField(null=True, default='Brak')
-
+    user = OneToOneField(User, on_delete=CASCADE, null=True)
 
     def __str__(self):
         return self.address

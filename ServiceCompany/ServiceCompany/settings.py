@@ -41,11 +41,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'accounts',
-    'phonenumber_field',
-    'phonenumbers'
 ]
 
-PHONENUMBER_DB_FORMAT = 'NATIONAL'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
