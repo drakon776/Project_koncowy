@@ -1,6 +1,5 @@
-from django.db.models import Model, CharField, TextField, CASCADE, OneToOneField, ForeignKey
+from django.db.models import Model, CharField, TextField, CASCADE, OneToOneField, ForeignKey, DO_NOTHING
 from django.contrib.auth.models import User
-
 
 
 class Client(Model):
@@ -11,7 +10,8 @@ class Client(Model):
     email = CharField(max_length=128)
 
     def __str__(self):
-        return self.name +" "+ self.surname + " " + self.address
+        return self.name + " " + self.surname + " " + self.address
+
 
 class Service(Model):
     name = CharField(max_length=128)
@@ -19,7 +19,8 @@ class Service(Model):
     specialization = CharField(max_length=128)
 
     def __str__(self):
-        return self.name +" "+ self.surname + " : " + self.specialization
+        return self.name + " " + self.surname + " : " + self.specialization
+
 
 class FaultType(Model):
     name = CharField(max_length=128, null=True)
@@ -31,5 +32,5 @@ class FaultType(Model):
 
 
 class Profile(Model):
-    user =OneToOneField(User,on_delete=CASCADE)
+    user = OneToOneField(User, on_delete=CASCADE)
     telephone = TextField()

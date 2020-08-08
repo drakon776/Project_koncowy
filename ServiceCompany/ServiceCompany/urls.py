@@ -10,8 +10,9 @@ admin.site.register(FaultType)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', user, name="index"),
-    path('fault/', ViewFault.as_view(), name='faulttype'),
+    path('fault/', ViewFault.as_view(), name='faulttype',),
     path('accounts/', include('accounts.urls', namespace='accounts')),
+    #path('fault/',)
 
 
 ]

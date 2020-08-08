@@ -1,4 +1,4 @@
-from django.forms import Form, CharField, Textarea
+from django.forms import Form
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
@@ -15,16 +15,13 @@ class SubmittableForm(Form):
 
 class SignUpForm(SubmittableForm, UserCreationForm):
     class Meta(UserCreationForm.Meta):
-        fields = ['username', 'first_name']
-
-    telephone = CharField(widget=Textarea)
+        fields = ['username', 'first_name', 'email', 'last_name']
 
     @atomic
     def save(self, commit=True):
         self.instance.is_active = False
         result = super().save(commit)
-        telephone = self.cleaned_data['telephone']
-        profile = Profile(telephone=telephone, user=result)
+        profile = Profile(user=result)
         if commit:
             profile.save()
         return result
@@ -32,6 +29,7 @@ class SignUpForm(SubmittableForm, UserCreationForm):
 
 class SubmittableAuthenticationForm(SubmittableForm, AuthenticationForm):
     pass
+
 
 class SubmittablePasswordChangeForm(SubmittableForm, PasswordChangeForm):
     pass

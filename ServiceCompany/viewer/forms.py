@@ -1,5 +1,14 @@
-from django.forms import Form, ModelForm, CharField, Textarea, ChoiceField
+from django.forms import Form, ModelForm, CharField, Textarea, ChoiceField, Field
 from viewer.models import Client, FaultType
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit
+
+
+class SubmittableForm(Form):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(*self.fields, Submit('submit', 'Submit'))
 
 
 class UserForm(ModelForm):
@@ -8,11 +17,17 @@ class UserForm(ModelForm):
         fields = '__all__'
         name = CharField()
 
-class FaultFormModel(ModelForm):
 
+class FaultFormModel(ModelForm):
     class Meta:
         model = FaultType
         fields = ('name', 'address', 'desc')
+
+    helper = FormHelper()
+    helper.add_input(Submit('submit', 'Submit', css_class='btn-primary'))
+    helper.form_method = 'POST'
+
+
 
 class FaultForm(Form):
     fault_types = (
@@ -26,5 +41,9 @@ class FaultForm(Form):
         ("8", "Prace Hydrauliczne"),
     )
     name = ChoiceField(choices=fault_types)
-    address = ChoiceField(choices=(('1', 'Os.'), ('2', 'Ul.')))
+    address = Field()
     desc = CharField(widget=Textarea, required=False)
+
+
+class ServiceView(Form):
+    pass
