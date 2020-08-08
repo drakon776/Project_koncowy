@@ -1,7 +1,10 @@
-from django.forms import Form, ModelForm, CharField, Textarea, ChoiceField, Field
+from django.forms import Form, ModelForm, CharField, Textarea, ChoiceField, Field, TextInput,IntegerField
 from viewer.models import Client, FaultType
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
+from phonenumber_field.formfields import PhoneNumberField
+
+
 
 
 class SubmittableForm(Form):
@@ -21,7 +24,7 @@ class UserForm(ModelForm):
 class FaultFormModel(ModelForm):
     class Meta:
         model = FaultType
-        fields = ('name', 'address', 'desc')
+        fields = ('name', 'address', 'phone', 'desc')
 
     helper = FormHelper()
     helper.add_input(Submit('submit', 'Submit', css_class='btn-primary'))
@@ -43,7 +46,7 @@ class FaultForm(Form):
     name = ChoiceField(choices=fault_types)
     address = Field()
     desc = CharField(widget=Textarea, required=False)
-
+    phone = IntegerField(max_value=12)
 
 class ServiceView(Form):
     pass

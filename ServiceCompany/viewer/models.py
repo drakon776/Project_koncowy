@@ -1,7 +1,7 @@
-from django.db.models import Model, CharField, TextField, CASCADE, OneToOneField, ForeignKey, DO_NOTHING
+from django.db.models import Model, CharField,IntegerField, TextField, CASCADE, OneToOneField, ForeignKey, DO_NOTHING
 from django.contrib.auth.models import User
-
-
+from django.forms import ChoiceField
+from phonenumber_field.modelfields import PhoneNumberField
 class Client(Model):
     name = CharField(max_length=128)
     surname = CharField(max_length=128)
@@ -23,9 +23,22 @@ class Service(Model):
 
 
 class FaultType(Model):
-    name = CharField(max_length=128, null=True)
+    fault_types = (
+        ("Inne", "Inne"),
+        ("Domofon", "Domofon"),
+        ("CCTV", "CCTV"),
+        ("Alarm", "Alarm"),
+        ("Telewizja", "Telewizja"),
+        ("C.O.", "C.O."),
+        ("C.W.", "C.W."),
+        ("Prace ślusarskie", "Prace ślusarskie"),
+        ("Prace Hydrauliczne", "Prace Hydrauliczne"),
+    )
+    name = CharField(max_length=100,choices=fault_types, default='Inne')
     address = CharField(max_length=128)
     desc = TextField(null=True, blank=True)
+    phone = IntegerField(null=True, default='Brak')
+
 
     def __str__(self):
         return self.address
