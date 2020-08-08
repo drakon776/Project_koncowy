@@ -22,4 +22,3 @@ class SubmitableUserPasswordChange(PasswordChangeView):
     form_class = SubmittablePasswordChangeForm
     template_name = 'form.html'
     success_url = reverse_lazy('index')
-

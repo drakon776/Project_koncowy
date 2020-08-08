@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul>
+    {% for fault in faults %}
+      {% if user.id == fault.user_id %}
+      <li>
+           [{{ fault.name }}] Adres:{{ fault.address}}
+          Telefon: {{ fault.phone}}  Opis Usterki:  {{ fault.desc }} = {{fault.user_id}}
+      </li>
+      {% endif%}
+    {% endfor %}
+  </ul>
+{% endblock %}

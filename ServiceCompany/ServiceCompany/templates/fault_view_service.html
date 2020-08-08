@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul>
+    {% for fault in faults %}
+      <li>
+           [{{ fault.name }}] Adres:{{ fault.address}}
+          Telefon: {{ fault.phone}}  Opis Usterki:  {{ fault.desc }} = {{fault.user_id}}
+      </li>
+      {% endfor %}
+  </ul>
+{% endblock %}

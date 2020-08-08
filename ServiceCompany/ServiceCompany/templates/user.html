@@ -2,17 +2,20 @@
 
 {% block content %}
 
-  <h1>Welcome User</h1>
+  <h1>
+      Witaj {% if user.first_name %} {{user.first_name }} {% else %} {{ user.username }}  {% endif %}!
 
-<div class="navbar-brand" >
-
-  <button type="button" class="primary-neumorph" data-toggle="collapse" >
-   <a class="navbar-brand" href="/fault">Zgłoś Problem</a>
-  </button>
-
-    <button type="button" class="primary-neumorph" data-toggle="collapse" >
-   <a class="navbar-brand" href="/faults">Zgłoszenia (lista)</a>
-  </button>
-  </div>
+  </h1>
+    <div class="navbar-brand" >
+           <button type="button" class="primary-neumorph" data-toggle="collapse" >
+                <a class="navbar-brand" href="/fault">Zgłoś Problem</a>
+           </button>
+           <button type="button" class="primary-neumorph" data-toggle="collapse" >
+                <a class="navbar-brand" href="/faults">Zgłoszenia dodane przez urzytkownika (lista)</a>
+           </button>
+           <button type="button" class="primary-neumorph" data-toggle="collapse" >
+               <a class="navbar-brand" href="/faults_service">Wszystkie Zgłoszenia (lista)</a>
+            </button>
+    </div >
 
 {% endblock %}
