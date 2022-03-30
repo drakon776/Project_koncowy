@@ -4,7 +4,6 @@ from django.views.generic.edit import FormMixin
 
 
 class TitleMixin(ContextMixin):
-
     title = None
 
     def get_title(self):
@@ -19,7 +18,6 @@ class TitleMixin(ContextMixin):
 
 
 class SuccessMessagedFormMixin(FormMixin):
-
     success_message = None
 
     def get_success_message(self):

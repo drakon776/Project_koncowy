@@ -1,8 +1,4 @@
-from django.db.models import Model, CharField,IntegerField,ManyToManyField, TextField, CASCADE, OneToOneField, ForeignKey, DO_NOTHING
-from django.contrib.auth.models import User
-from django.forms import ChoiceField
-from phonenumber_field.modelfields import PhoneNumberField
-
+from django.db.models import Model, CharField, IntegerField, TextField, CASCADE, OneToOneField, ForeignKey
 from django.contrib.auth.models import User
 
 
@@ -38,7 +34,7 @@ class FaultType(Model):
         ("Prace ślusarskie", "Prace ślusarskie"),
         ("Prace Hydrauliczne", "Prace Hydrauliczne"),
     )
-    name = CharField(max_length=100,choices=fault_types, default='Inne')
+    name = CharField(max_length=100, choices=fault_types, default='Inne')
     address = CharField(max_length=128)
     desc = TextField(null=True, blank=True)
     phone = IntegerField(null=True, default='Brak')

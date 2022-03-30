@@ -1,6 +1,6 @@
 from django.forms import (Form, ModelForm, CharField,
                           Textarea, ChoiceField, Field, IntegerField)
-from viewer.models import Client, FaultType
+from .models import Client, FaultType
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 
@@ -29,7 +29,6 @@ class FaultFormModel(ModelForm):
     helper.form_method = 'POST'
 
 
-
 class FaultForm(Form):
     fault_types = (
         ("1", "Domofon"),
@@ -45,6 +44,7 @@ class FaultForm(Form):
     address = Field()
     desc = CharField(widget=Textarea, required=False)
     phone = IntegerField(max_value=12)
+
 
 class ServiceView(Form):
     pass

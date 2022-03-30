@@ -1,5 +1,5 @@
 from django.urls import path
-from viewer.views import user, ViewFault, faults, faults_service
+from .views import user, ViewFault, faults, faults_service
 
 app_name = 'viewer'
 urlpatterns = [
