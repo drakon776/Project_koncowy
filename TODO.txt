@@ -1,0 +1,56 @@
+:
+PL
+
+Panel Klienta:(Client)
+    Strona glowna:
+        1. zglaszanie usterek
+        2. kontakt
+        3. dostepnosc
+        4. Profil
+        5. Powiadomienia
+        6. Wyloguj
+        7. Historia zgloszen
+        8. Komunikaty od SM/Firm zewnetrznych
+
+Panel Spoldzielni mieszkaniowej:(SM)
+    Strona glowna:
+        1. Dodawanie administratorow
+        2. Uprawnienia administratorow
+        3. Profil
+
+    Panel administratorow SM:(SM_A)
+        Strona glowna:
+            1. zglaszanie usterek
+            2. kontakt
+            3. dostepnosc
+            4. Profil
+            5. Powiadomienia
+            6. Wyloguj
+            7. Historia zgloszen
+            8. Komunikaty od SM/Firm zewnetrznych
+            9. Urlopy
+
+Panel Admina:(Admin)
+    1. ???
+
+Panel Firm zewnetrznych:
+    Strona glowna:
+        1. Dodawanie serwisantow
+        2. Uprawnienia serwisantow
+        3. Profil
+    Panel Konserwatorow:
+        Strona glowna:
+            1. Usterki
+            2. kontakt
+            3. dostepnosc
+            4. Profil
+            5. Powiadomienia
+            6. Wyloguj
+            7. Historia zgloszen
+            8. Komunikaty od SM/Firm zewnetrznych
+            9. Moje zgloszenia
+
+
+Panel Klienta Strona glowna:
+    1. Zglasznie usterek:
+        zgloszenie usterki w mieszkaniu/ zgloszenie usterki ogolnej

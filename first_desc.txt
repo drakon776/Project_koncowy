@@ -1,4 +1,3 @@
-Klient:
 Panel Klienta:
     --Imie
     --Nazwisko

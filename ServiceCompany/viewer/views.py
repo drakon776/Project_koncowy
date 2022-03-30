@@ -35,3 +35,8 @@ def faults_service(request):
         request, template_name='fault_view_service.html',
         context={'faults': FaultType.objects.all()}
     )
+
+def main_page(request):
+    return render(
+        request, template_name='main.html'
+    )
